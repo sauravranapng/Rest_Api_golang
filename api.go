@@ -87,5 +87,5 @@ func main() {
   r.GET("/getbyid/:id",getBookById)//  :(colon) indicate id is a path parameter
   r.PATCH("/update/:id",updateBookById)
   r.DELETE("/delete/:id",deleteBookById)
-  r.Run("localhost:8080") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+  r.Run("localhost:8080") //it is my desktop
 }
