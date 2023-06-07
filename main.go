@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/sauravranapng/modules/controllers"
+	"github.com/sauravranapng/mod/controllers"
 	"net/http"
 )
 
