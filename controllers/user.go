@@ -4,8 +4,8 @@ import (
 	"errors"
 	
 	"net/http"
-	"github.com/sauravranapng/modules/database"
-	"github.com/sauravranapng/modules/models"
+	"modules/database"
+	"modules/models"
 
 
 	"github.com/gin-gonic/gin"
