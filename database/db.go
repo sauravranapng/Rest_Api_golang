@@ -7,10 +7,10 @@ import (
 	"gorm.io/gorm"
 )
 
-const DB_USERNAME = "saurav"
-const DB_PASSWORD = "saurav11"
+const DB_USERNAME = "root"
+const DB_PASSWORD = "Saurav@123"
 const DB_NAME = "first"
-const DB_HOST = "db-2.ciq6rsafmxq0.ap-south-1.rds.amazonaws.com"
+const DB_HOST = "127.0.0.1"
 const DB_PORT = "3306"
 
 var Db *gorm.DB
