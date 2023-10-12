@@ -27,6 +27,7 @@ func setupRouter() *gin.Engine {
 	//It calls the New function of a controllers package (or type) to create this instance.
      //books,books/:id ,.... are endpoints
 	r.POST("books", userRepo.CreateUser)
+//This line tells Gin to route any incoming POST requests to the "/books" endpoint to the CreateUser function
 	r.GET("books", userRepo.GetUsers)
 	r.GET("books/:id", userRepo.GetUser)
 	r.PUT("books/:id", userRepo.UpdateUser)
