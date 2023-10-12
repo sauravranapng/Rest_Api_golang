@@ -9,12 +9,14 @@ import (
 func main() {
 	r := setupRouter()
 	_ = r.Run(":8080")
+    //starting the server at port 8080
 }
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-         //This line initializes a Gin router using the default settings
-	//The r variable now holds an instance of the Gin router with default configurations, including middleware.
+//This line initializes a Gin router using the default settings
+//The r variable now holds an instance of the Gin router with default configurations, including middleware.
+ // This middleware logs information about each incoming HTTP request, such as the request method, URL, and response status.
 	r.GET("ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, "pong")
 	})
