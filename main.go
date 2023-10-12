@@ -25,6 +25,7 @@ func setupRouter() *gin.Engine {
 //The context object contains information about the incoming HTTP request and provides methods for handling and responding to the request.
 	userRepo := controllers.New()
 	//It calls the New function of a controllers package (or type) to create this instance.
+     //books,books/:id ,.... are endpoints
 	r.POST("books", userRepo.CreateUser)
 	r.GET("books", userRepo.GetUsers)
 	r.GET("books/:id", userRepo.GetUser)
