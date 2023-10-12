@@ -6,6 +6,10 @@ import (
 
 type Book struct {
 	gorm.Model
+//The gorm.Model field is used to embed common fields that are often required 
+//when working with a database, such as an ID, created timestamp, updated timestamp, and deleted timestamp.
+//DeletedAt: A timestamp indicating when the record was soft-deleted, if applicable.
+// Soft deletion is a technique where records are not physically deleted from the database but marked as deleted with a timestamp.
 	Id string 
 	Title string
 	Author string
