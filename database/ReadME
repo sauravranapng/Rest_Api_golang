@@ -1,0 +1,35 @@
+README for GOLANG APi 
+GIN (framework)
+ Gin web framework, a popular and lightweight web framework for building web applications and APIs in the Go programming language. The gin.Engine is at the core of the Gin framework and is responsible for managing routes, handling HTTP requests, and providing a structured way to build web applications.
+Context: The framework uses a context package to manage request-specific data and pass it between middleware and handlers. This allows you to share information between different parts of your application .
+
+GORM (library)
+ (Go Object-Relational Mapping) library, which is a popular library for working with databases in Go.
+The gorm.Model field is used to embed common fields that are often required when working with a database, such as an ID, created timestamp, updated timestamp, and deleted timestamp. It simplifies the process of defining and working with database models by providing these common fields as part of the struct.
+Here's what the fields from gorm.Model typically represent:
+
+ID: An auto-incrementing primary key for the database record.
+CreatedAt: A timestamp indicating when the record was created.
+UpdatedAt: A timestamp indicating when the record was last updated.
+DeletedAt: A timestamp indicating when the record was soft-deleted, if applicable. Soft deletion is a technique where records are not physically deleted from the database but marked as deleted with a timestamp.
+By embedding gorm.Model in your Book struct, you inherit these fields and their associated functionality, which can be quite handy when working with databases. For example, GORM can use these fields to manage database operations like inserting, updating, and deleting records automatically.
+type Book struct {
+    gorm.Model
+    Id     string
+    Title  string
+    Author string
+    Price  int
+}
+
+// Create a new book record in the database
+func CreateBook(db *gorm.DB, book Book) {
+    db.Create(&book)
+}
+In this example, when you create a new Book record using GORM's Create method, it will automatically handle the ID, CreatedAt, UpdatedAt, and DeletedAt fields for you, thanks to the embedded gorm.Model.
+
+So, in summary, the use of gorm.Model in your Book struct is a common practice when working with GORM to simplify the management of database records. It provides a consistent way to handle common database fields across multiple database models in your application.
+
+ Gorm Mysql driver is going to establish actual connection to Mysql Db
+dsn := DB_USERNAME + ":" + DB_PASSWORD + "@tcp" + "(" + DB_HOST + ":" + DB_PORT + ")/" + DB_NAME + "?" + "parseTime=true&loc=Local"
+  // db_username:db_password@tcp(host:port)/db_name?parseTime=true&loc=Local
+       db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
