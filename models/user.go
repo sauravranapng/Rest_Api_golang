@@ -19,6 +19,7 @@ type Book struct {
 //create a user
 func CreateUser(db *gorm.DB, book *Book) (err error) {
 	err = db.Create(book).Error
+  //Create is method of GORM
 	if err != nil {
 		return err
 	}
@@ -33,10 +34,11 @@ func GetUsers(db *gorm.DB, book *[]Book) (err error) {
 	}
 	return nil
 }
-
 //get user by id
 func GetUser(db *gorm.DB, book *Book, id string) (err error) {
 	err = db.Where("id = ?", id).First(book).Error
+// It specifies that you want to retrieve the first record that matches the condition defined by .Where, 
+//and it should populate the book variable with the result.
 	if err != nil {
 		return err
 	}
@@ -55,3 +57,5 @@ func DeleteUser(db *gorm.DB, book *Book, id string) (err error) {
 	
 	return nil
 }
+//when you create a new Book record using GORM's Create method, 
+it will automatically handle the ID, CreatedAt, UpdatedAt, and DeletedAt fields for you, thanks to the embedded gorm.Model.
